@@ -27,5 +27,16 @@ class CashRegister:
     })
   
   def apply_discount(self):
-    return (self.total * self.discount)/100
+    discounted_amount = (self.total * self.discount)/100
+    return self.total - discounted_amount
   
+  def void_last_transaction(self):
+    if not self.previous_transactions:
+      print("There is no discount to apply.")
+      return
+      
+    transactions = self.previous_transactions.pop()
+    
+    self.total -= transactions["price"] * transactions["quantity"]   
+    self.items.remove(transactions['item'])
+    
