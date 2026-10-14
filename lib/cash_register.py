@@ -29,7 +29,3 @@ class CashRegister:
   def apply_discount(self):
     return (self.total * self.discount)/100
   
-register = CashRegister()
-itm_1 = register.add_item("sugar",100,20)
-print(register.items)
-print(register.total)
